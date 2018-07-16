@@ -1,0 +1,55 @@
+<nav class="topnav navbar navbar-expand-md navbar-light bg-light" id="myTopnav">
+    <a class="navbar-brand">
+        <img class="logo" src="assets/images/logo.png">
+    </a>
+    <button class="btn nav-link d-xs-inline d-md-none symptom-button">SYMPTOM CHECKER</button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link">Health A-Z</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn nav-link d-none d-md-inline symptom-button">SYMPTOM CHECKER</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+<header>
+    <span>{{title}}</span>
+</header>
+<main>
+
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Type a condition" [ngModel]="term" (ngModelChange)="search($event)">
+    </div>
+    <div *ngIf="conditions" class="conditions-deck">
+        <ng-container *ngIf="conditions.length>0;else noResults">
+            <div *ngFor="let condition of conditions" class="card mb-6 box-shadow">
+                <img class="card-img-top" src="{{condition.image ? condition.image : 'assets/images/placeholder.png'}}" onerror="this.src='assets/images/placeholder.png'"
+                    alt="{{condition.label}}">
+                <div class="card-body">
+                    <p class="card-title">{{condition.label}}</p>
+                    <p class="card-text">{{ (condition.snippet && condition.snippet.length>45)? (condition.snippet | slice:0:45)+'...':(condition.snippet)
+                        }}
+                    </p>
+                    <a class="card-link" href="#">Find out more</a>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noResults>
+            <div class="no-results-msg">
+                <p>There are no results for your query</p>
+            </div>
+        </ng-template>
+    </div>
+</main>

@@ -1,0 +1,100 @@
+$primary-color: #3ec8b3;
+
+a {
+  color: $primary-color;
+}
+
+nav {
+  .logo {
+    height: 45px;
+  }
+
+  .symptom-button {
+    background-color: $primary-color;
+    color: #FFF !important;
+  }
+
+  .nav-item {
+    margin: 0px 10px;
+  }
+}
+
+header {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  span {
+    padding: 12px; 
+    color: #fff;
+    font-size: 30px;
+
+    @media(max-width:767px) {
+      font-size: 20px;
+      padding: 8px 15px;      
+    } 
+  }
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  
+  .form-group {
+    padding: 20px 0px;
+    
+    input {
+      width: 100%;
+      font-size: 22px!important;
+      margin: 7px 0px;
+      
+      &::placeholder {
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+.conditions-deck {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  .card {
+    width: 23%;
+    margin: 10px;
+    min-width: 220px;
+  
+    .card-title {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .card-body {    
+      position: relative;  
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .card-text {
+      padding-bottom: 18px;
+    }
+    .card-link {
+      position: absolute;
+      bottom: 20px;
+    } 
+  }  
+}
+
+footer {
+  background-color: #F5F5F5;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
